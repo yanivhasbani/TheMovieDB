@@ -14,10 +14,6 @@ enum SegmentType:Int {
   case Rate = 2
 }
 
-protocol FilterVCDelegate {
-  func passingData(filter:MovieFilter);
-}
-
 class FilterVC: UIViewController {
   
   @IBOutlet var filterType: UISegmentedControl!
@@ -36,8 +32,6 @@ class FilterVC: UIViewController {
   
   var filters:MovieFilter = MovieFilter(filterType: [], filterValue: [:])
   var currentlyEditTextField: UITextField?
-  var delegate: FilterVCDelegate?
-  
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -87,35 +81,33 @@ class FilterVC: UIViewController {
   }
   
   @IBAction func backPressed(_ sender: Any) {
-    let movieFilter = self.createFilter()
-    self.delegate?.passingData(filter: movieFilter)
     self.dismiss(animated: true, completion: nil)
   }
   
-  func createFilter() -> MovieFilter {
+  func updateFilter(textFiled:UITextField) {
     
     var rateRange =  (from:Int.min, to:Int.max)
     var yearRange = (from:Int.min, to:Int.max)
     
-    if let rateTo = toRate.text, rateTo != "To Rate" {
-      rateRange.to = Int(rateTo)!
+    if textFiled == toRate {
+      rateRange.to = Int(toRate.text!)!
       filters.filterType.append(.Rate)
     }
     
-    if let rateFrom = fromRate.text, rateFrom != "From Rate" {
-      rateRange.from = Int(rateFrom)!
+    if textFiled == fromRate {
+      rateRange.from = Int(fromRate.text!)!
       if (!filters.filterType.contains(.Rate)) {
         filters.filterType.append(.Rate)
       }
     }
     
-    if let yearTo = to.text, yearTo != "To Year" {
-      yearRange.to = Int(yearTo)!
+    if textFiled == to {
+      yearRange.to = Int(to.text!)!
       filters.filterType.append(.Year)
     }
     
-    if let yearFrom = from.text, yearFrom != "From Year" {
-      yearRange.from = Int(yearFrom)!
+    if textFiled == from {
+      yearRange.from = Int(from.text!)!
       if (!filters.filterType.contains(.Year)) {
         filters.filterType.append(.Year)
       }
@@ -123,8 +115,6 @@ class FilterVC: UIViewController {
     
     filters.filterValue[.Year] = yearRange
     filters.filterValue[.Rate] = rateRange
-    
-    return filters
   }
   
   
@@ -249,6 +239,7 @@ extension FilterVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     currentlyEditTextField?.text = data
+    updateFilter(textFiled: currentlyEditTextField!)
     
     picker.isHidden = true
   }

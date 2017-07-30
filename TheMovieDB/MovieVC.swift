@@ -33,6 +33,10 @@ class MovieVC: UIViewController {
       }
     }
     
+
+    self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+    self.navigationController?.navigationBar.shadowImage = UIImage()
+    self.navigationController?.navigationBar.isTranslucent = true
     collectionView.delegate = self
     collectionView.dataSource = self
     genreFilter.allowsEditingTextAttributes = false
@@ -112,7 +116,6 @@ class MovieVC: UIViewController {
     if let filterVC = segue.destination as? FilterVC,
       let filters = sender as? MovieFilter {
       filterVC.filters = filters
-      filterVC.delegate = self
     }
     
     if let detailsVC = segue.destination as? DetailsVC,
@@ -123,13 +126,6 @@ class MovieVC: UIViewController {
   
   @IBAction func filterPressed(_ sender: Any) {
     self.performSegue(withIdentifier: "FilterVC", sender: self.filters)
-  }
-}
-
-
-extension MovieVC:FilterVCDelegate {
-  func passingData(filter:MovieFilter) {
-    self.filters = filter
   }
 }
 

@@ -60,8 +60,11 @@ class MovieCollection {
     fetching = true
     
     self.downloadMovies(pageId:pageId, completion:{
+      completion()
       self.downloadSmallImages(completion:{
+        completion()
         self.downloadDetails(completion:{
+          completion()
           self.fetching = false
           self.currentlyShowingMovies = self.allMovies
           completion()
@@ -91,6 +94,7 @@ class MovieCollection {
               if !self.moviesNeedSmallImage.contains(movie),
                 !self.allMovies.contains(movie) {
                 self.moviesNeedSmallImage.append(movie)
+                self.allMovies.append(movie)
               }
             }
           }
@@ -136,7 +140,6 @@ class MovieCollection {
             let duration = details["runtime"] as? Int {
             if let index = self.moviesNeedDetails.index(of: movie) {
               self.moviesNeedDetails.remove(at:index)
-              self.allMovies.append(movie)
               self.moviesNeedCast.append(movie)
             }
             movie.tagline = tagline
