@@ -25,14 +25,14 @@ class Movie: Equatable {
   var year: Int = 0
   var tagline: String = ""
   var imageURL : String = ""
-  var image: UIImage = UIImage()
+  var image: UIImage?
   var bigImage: UIImage = UIImage()
   var genres: Array<Genre> = []
   var name:String = ""
   var id:Int = -1
   var overview:String = ""
   var actors:[Actor] = []
-  var duration:Int = -1
+  var duration:Int?
   
   public func inYearRange(range:(from: Int, to: Int)) -> Bool {
     return year >= range.from && year <= range.to
@@ -47,7 +47,12 @@ class Movie: Equatable {
       self.rate = rate
     }
     
-    if let fullDate = json["release_date"] as? String {
+//    if let popularity = json["popularity"] as? Float {
+//      self.rate = popularity
+//    }
+    
+    if let fullDate = json["release_date"] as? String,
+      fullDate.characters.count > 5 {
       let index = fullDate.index(fullDate.startIndex, offsetBy: 4)
       self.year = Int(fullDate.substring(to:index))!
     }

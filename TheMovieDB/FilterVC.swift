@@ -92,6 +92,14 @@ class FilterVC: UIViewController {
     if textFiled == toRate {
       rateRange.to = Int(toRate.text!)!
       filters.filterType.append(.Rate)
+      if var rates = filters.filterValue[.Rate] as? (from:Int, to:Int) {
+        rates.to = rateRange.to
+        filters.filterValue[.Rate] = rates
+      } else {
+        filters.filterValue[.Rate] = [(from:Int, to:Int)]()
+        filters.filterValue[.Rate] = rateRange
+      }
+      return
     }
     
     if textFiled == fromRate {
@@ -99,11 +107,27 @@ class FilterVC: UIViewController {
       if (!filters.filterType.contains(.Rate)) {
         filters.filterType.append(.Rate)
       }
+      if var rates = filters.filterValue[.Rate] as? (from:Int, to:Int) {
+        rates.from = rateRange.from
+        filters.filterValue[.Rate] = rates
+      } else {
+        filters.filterValue[.Rate] = [(from:Int, to:Int)]()
+        filters.filterValue[.Rate] = rateRange
+      }
+      return
     }
     
     if textFiled == to {
       yearRange.to = Int(to.text!)!
       filters.filterType.append(.Year)
+      if var year = filters.filterValue[.Year] as? (from:Int, to:Int) {
+        year.to = yearRange.to
+        filters.filterValue[.Year] = year
+      } else {
+        filters.filterValue[.Year] = [(from:Int, to:Int)]()
+        filters.filterValue[.Year] = yearRange
+      }
+      return
     }
     
     if textFiled == from {
@@ -111,10 +135,15 @@ class FilterVC: UIViewController {
       if (!filters.filterType.contains(.Year)) {
         filters.filterType.append(.Year)
       }
+      if var year = filters.filterValue[.Year] as? (from:Int, to:Int) {
+        year.from = yearRange.from
+        filters.filterValue[.Year] = year
+      } else {
+        filters.filterValue[.Year] = [(from:Int, to:Int)]()
+        filters.filterValue[.Year] = yearRange
+      }
+      return
     }
-    
-    filters.filterValue[.Year] = yearRange
-    filters.filterValue[.Rate] = rateRange
   }
   
   

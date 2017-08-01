@@ -45,7 +45,7 @@ class MovieVC: UIViewController {
     yearFilter.delegate = self
     rateFilter.allowsEditingTextAttributes = false
     rateFilter.delegate = self
-    MovieCollection.shared.delegate = self
+    MovieCollection.shared.movieDelegate = self
     
     
     MovieCollection.shared.fetch()
@@ -185,17 +185,34 @@ extension MovieVC: UITextFieldDelegate {
 
 //MARK:MovieCollectionDelegate
 extension MovieVC: MovieCollectionDelegate {
-  func finishedLoadingData() {
+  func reloadCollectionview() {
+    if !self.loaded {
+      self.loaded = true
+    }
+    
+    if !self.filterStack.isHidden &&
+      self.filters.filterType.count == 0 ||
+      (self.filters.filterType.count == 1 && self.filters.filterType.contains(.Search)) {
+      self.filterStack.isHidden = true
+    }
+    self.collectionView.reloadData()
+  }
+  
+  func finishedLoadingMovies() {
     DispatchQueue.main.async {
-      if !self.loaded {
-        self.loaded = true
-      }
-      
-      if self.filters.filterType.count == 0 ||
-        (self.filters.filterType.count == 1 && self.filters.filterType.contains(.Search)) {
-        self.filterStack.isHidden = true
-      }
-      self.collectionView.reloadData()
+      self.reloadCollectionview()
+    }
+  }
+  
+  func finishedLoadingMovieDetails() {
+    DispatchQueue.main.async {
+      self.reloadCollectionview()
+    }
+  }
+  
+  func finishedLoadingSmallImages() {
+    DispatchQueue.main.async {
+      self.reloadCollectionview()
     }
   }
 }
@@ -207,7 +224,7 @@ extension MovieVC: UICollectionViewDelegate {
 
 extension MovieVC: UICollectionViewDataSource  {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    if MovieCollection.shared.currentlyShowingMovies.count == 0 {
+    if notEnoughData() {
       MovieCollection.shared.fetchMore()
     }
     return MovieCollection.shared.currentlyShowingMovies.count
@@ -216,7 +233,7 @@ extension MovieVC: UICollectionViewDataSource  {
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MovieCell", for: indexPath) as? MovieCell {
       //FetchMore in case of scrolling to end
-      if (indexPath.row == MovieCollection.shared.currentlyShowingMovies.count - 1) {
+      if lastCellOnScroll(indexPath: indexPath) {
         MovieCollection.shared.fetchMore()
       }
       
@@ -239,5 +256,13 @@ extension MovieVC: UICollectionViewDataSource  {
       let movie = MovieCollection.shared.currentlyShowingMovies[indexPath.row]
       self.performSegue(withIdentifier: "DetailsVC", sender: movie)
     }
+  }
+  
+  func notEnoughData() -> Bool {
+    return MovieCollection.shared.currentlyShowingMovies.count == 0
+  }
+  
+  func lastCellOnScroll(indexPath:IndexPath) -> Bool {
+    return indexPath.row == MovieCollection.shared.currentlyShowingMovies.count - 1
   }
 }
