@@ -421,7 +421,7 @@ class MovieCollection {
     }
     
     if years.from == Int.min {
-      lowerRange = 1979
+      lowerRange = 1900
     } else {
       lowerRange = years.from
     }

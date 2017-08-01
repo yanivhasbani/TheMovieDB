@@ -2,18 +2,15 @@ PODS:
   - Alamofire (4.5.0)
   - AlamofireImage (3.2.0):
     - Alamofire (~> 4.1)
-  - ReadMoreTextView (2.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.4)
   - AlamofireImage (~> 3.1)
-  - ReadMoreTextView
 
 SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
-  ReadMoreTextView: aefb9ffe11922c87fd39a09a988d7cc74c8438ba
 
-PODFILE CHECKSUM: 85f83c015bda971134d40c1bb25709d1f6293d3d
+PODFILE CHECKSUM: 79926b81e97b3d5d39cd4b4d325e8d0f256fa937
 
 COCOAPODS: 1.2.1

@@ -34,7 +34,7 @@ class DetailsVC: UIViewController {
       year.text = String(movie.year)
       if let duration = movie.duration {
         self.duration.text = String(duration)
-        self.duration.isHidden = false
+        self.durationStack.isHidden = false
       }
       rate.text = String(movie.rate)
       overview.text = String(movie.overview)
@@ -83,7 +83,7 @@ extension DetailsVC: MovieDetailsDelegate {
     DispatchQueue.main.async {
       if let duration = self.movie?.duration {
         self.duration.text = String(duration)
-        self.duration.isHidden = false
+        self.durationStack.isHidden = false
       }
       self.view.layoutIfNeeded()
     }

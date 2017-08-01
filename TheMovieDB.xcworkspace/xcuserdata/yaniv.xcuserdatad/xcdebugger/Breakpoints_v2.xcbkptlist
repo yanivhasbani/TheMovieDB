@@ -26,7 +26,7 @@
                   moduleName = "TheMovieDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
-                  timestampString = "523285602.572655"
+                  timestampString = "523295808.178139"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "108"
@@ -41,7 +41,7 @@
                   moduleName = "TheMovieDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
-                  timestampString = "523285602.57559"
+                  timestampString = "523295808.179866"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "108"
@@ -138,43 +138,107 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieDB/MovieCollection.swift"
-            timestampString = "523284629.159819"
+            timestampString = "523288037.044696"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "295"
-            endingLineNumber = "295"
-            landmarkName = "downloadDetails(movieId:completion:)"
+            startingLineNumber = "245"
+            endingLineNumber = "245"
+            landmarkName = "downloadMovies(url:completion:)"
             landmarkType = "7">
             <Locations>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.MovieCollection.(downloadDetails in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (movieId : Swift.Int, completion : () -&gt; ()) -&gt; ()"
+                  symbolName = "TheMovieDB.MovieCollection.(downloadMovies in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (url : Swift.String, completion : () -&gt; ()) -&gt; ()"
                   moduleName = "TheMovieDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
-                  timestampString = "523285602.598271"
+                  timestampString = "523295808.204194"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "295"
-                  endingLineNumber = "295"
+                  startingLineNumber = "245"
+                  endingLineNumber = "245"
+                  offsetFromSymbolStart = "588">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieDB.MovieCollection.((downloadMovies in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (url : Swift.String, completion : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
+                  timestampString = "523295808.20692"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "32">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieDB/MovieCollection.swift"
+            timestampString = "523288042.363422"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "downloadMovies(url:completion:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieDB/MovieCollection.swift"
+            timestampString = "523288066.435076"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "downloadMovies(url:completion:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieDB.MovieCollection.((downloadMovies in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (url : Swift.String, completion : () -&gt; ()) -&gt; ()).(closure #1)"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
+                  timestampString = "523295808.212906"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
                   offsetFromSymbolStart = "32">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.MovieCollection.(downloadDetails in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (movieId : Swift.Int, completion : () -&gt; ()) -&gt; ()"
+                  symbolName = "TheMovieDB.MovieCollection.((downloadMovies in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (url : Swift.String, completion : () -&gt; ()) -&gt; ()).(closure #1)"
                   moduleName = "TheMovieDB"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
-                  timestampString = "523285602.5996"
+                  timestampString = "523295808.214476"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "295"
-                  endingLineNumber = "295"
-                  offsetFromSymbolStart = "72">
+                  startingLineNumber = "246"
+                  endingLineNumber = "246"
+                  offsetFromSymbolStart = "424">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -186,92 +250,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieDB/MovieCollection.swift"
-            timestampString = "523284629.159819"
+            timestampString = "523288073.394376"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
-            landmarkName = "download(url:completion:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.MovieCollection.(download in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (url : Swift.String, completion : () -&gt; ()) -&gt; ()"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
-                  timestampString = "523285602.60312"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "222"
-                  endingLineNumber = "222"
-                  offsetFromSymbolStart = "312">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "TheMovieDB.MovieCollection.((download in _1622CE8DD0B44DFFD2B0902FBB4E70EB) (url : Swift.String, completion : () -&gt; ()) -&gt; ()).(closure #1)"
-                  moduleName = "TheMovieDB"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/MovieCollection.swift"
-                  timestampString = "523285602.604915"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "223"
-                  endingLineNumber = "223"
-                  offsetFromSymbolStart = "24">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheMovieDB/MovieCollection.swift"
-            timestampString = "523284629.159819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "224"
-            endingLineNumber = "224"
-            landmarkName = "download(url:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheMovieDB/MovieCollection.swift"
-            timestampString = "523284629.159819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
-            landmarkName = "download(url:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "TheMovieDB/MovieCollection.swift"
-            timestampString = "523284629.159819"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "223"
-            endingLineNumber = "223"
-            landmarkName = "download(url:completion:)"
+            startingLineNumber = "263"
+            endingLineNumber = "263"
+            landmarkName = "downloadMovies(url:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -282,13 +266,77 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TheMovieDB/CastVC.swift"
-            timestampString = "523285539.248068"
+            timestampString = "523295918.621817"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
-            landmarkName = "convertDate(date:)"
+            startingLineNumber = "183"
+            endingLineNumber = "183"
+            landmarkName = "textView(_:shouldInteractWith:in:interaction:)"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieDB/CastVC.swift"
+            timestampString = "523295918.621817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "165"
+            endingLineNumber = "165"
+            landmarkName = "CastVC"
+            landmarkType = "4">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "TheMovieDB/CastVC.swift"
+            timestampString = "523295918.621817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "updateUI()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieDB.CastVC.updateUI () -&gt; ()"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/CastVC.swift"
+                  timestampString = "523295808.22552"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "28">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "TheMovieDB.CastVC.updateUI () -&gt; ()"
+                  moduleName = "TheMovieDB"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/yaniv/Developer/Hostapps/TheMovieDB/TheMovieDB/CastVC.swift"
+                  timestampString = "523295808.226961"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "52"
+                  endingLineNumber = "52"
+                  offsetFromSymbolStart = "256">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

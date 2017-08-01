@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReadMoreTextView
 
 class CastVC: UIViewController {
   @IBOutlet var dateOfBirth: UILabel!
@@ -18,8 +17,11 @@ class CastVC: UIViewController {
   @IBOutlet var dateOfDecease: UILabel!
   @IBOutlet var deceaseStack: UIStackView?
   
+  
   @IBOutlet var dobStack: UIStackView!
   var actor:Actor?
+  var nextText:String?
+  let THRESHOLD = 200
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -31,6 +33,9 @@ class CastVC: UIViewController {
     }
     movieCollectionView.delegate = self
     movieCollectionView.dataSource = self
+    biography.delegate = self
+    let tap  = UITapGestureRecognizer.init(target: self, action: #selector(CastVC.textViewTapped(_:)))
+    biography.addGestureRecognizer(tap)
     ActorCollection.shared.fetchActor(actor:actor!, completion:{
       self.updateUI()
       MovieCollection.shared.downloadMoviesByActor(actor: self.actor!, completion: {
@@ -43,15 +48,37 @@ class CastVC: UIViewController {
   }
   
   func updateUI() {
-    self.biography.text = actor?.biography
-    self.biography.isScrollEnabled = true
-    self.biography.isHidden = false
-    self.dateOfBirth.text = convertDate(date: actor?.birthday)!
-    self.dobStack.isHidden = false
-    if let deathDay = actor?.deathday {
-      self.deceaseStack?.isHidden = false
-      self.dateOfDecease.text = convertDate(date: deathDay)!
+    if let biography = actor?.biography {
+      if biography.characters.count > THRESHOLD {
+        self.nextText = biography
+        let index = biography.index(actor!.biography.startIndex, offsetBy: 200)
+        var trimmedText = actor?.biography.substring(to: index)
+        trimmedText?.append("  Read More....")
+        self.biography.text = trimmedText
+      } else {
+        self.biography.text = biography
+      }
     }
+    
+    self.biography.isHidden = false
+    if let birthday = actor?.birthday,
+      birthday.characters.count > 0 {
+      self.dateOfBirth.text = convertDate(date: birthday)
+      self.dobStack.isHidden = false
+    }
+    if let deathDay = actor?.deathday,
+      deathDay.characters.count > 0 {
+      self.deceaseStack?.isHidden = false
+      self.dateOfDecease.text = convertDate(date: deathDay)
+    }
+    self.view.layoutSubviews()
+  }
+  
+  func textViewTapped(_ sender:UITapGestureRecognizer?) {
+    let tmp = self.biography.text
+    self.biography.text = self.nextText
+    self.nextText = tmp
+    self.view.layoutSubviews()
   }
   
   
@@ -132,25 +159,29 @@ extension CastVC: UICollectionViewDataSource, UICollectionViewDelegate {
 }
 
 protocol CastUtils {
-  func convertDate(date:String?) -> String?
+  func convertDate(date:String) -> String
 }
 
 extension CastVC: CastUtils {
-  func convertDate(date:String?) -> String? {
-    if let date = date {
-      if date.characters.count > 4 {
-        let inputFormatter = DateFormatter()
-        inputFormatter.dateFormat = "yyyy-MM-dd"
-        let showDate = inputFormatter.date(from: date)
-        inputFormatter.dateFormat = "dd-MM-yyy"
-        let resultString = inputFormatter.string(from: showDate!)
-        
-        return resultString
-      }
+  func convertDate(date:String) -> String {
+    if date.characters.count > 4 {
+      let inputFormatter = DateFormatter()
+      inputFormatter.dateFormat = "yyyy-MM-dd"
+      let showDate = inputFormatter.date(from: date)
+      inputFormatter.dateFormat = "dd-MM-yyy"
+      let resultString = inputFormatter.string(from: showDate!)
       
-      return date
+      return resultString
     }
     
-    return nil
+    return date
+  }
+}
+
+extension CastVC: UITextViewDelegate {
+  func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange, interaction: UITextItemInteraction) -> Bool {
+    print(textView)
+    
+    return true
   }
 }
